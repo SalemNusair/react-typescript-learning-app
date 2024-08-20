@@ -15,6 +15,7 @@ import { ThemeContextProvider } from "./components/context/ThemeContextProvider"
 import UserContextProvider from "./components/context/UserContextProvider";
 import Box from "./components/context/Box";
 import MutableRef from "./components/Ref/MutableRef";
+import List from "./components/generics/List";
 
 function App() {
     const personName = {
@@ -77,6 +78,28 @@ function App() {
             <MutableRef />
             {/* Class components */}
             <CounterClassComponent message="hello I'm class component" />
+            {/* generic types */}
+
+            <List
+                items={[
+                    {
+                        first: "Bruce",
+                        last: "Wayne",
+                        id: 1,
+                    },
+                    {
+                        first: "Ali",
+                        last: "Saleh",
+                        id: 2,
+                    },
+                    {
+                        first: "Mohammed",
+                        last: "Abdullah",
+                        id: 3,
+                    },
+                ]}
+                onClick={({ id }) => console.log(id)}
+            />
         </>
     );
 }
