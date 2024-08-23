@@ -16,6 +16,11 @@ import UserContextProvider from "./components/context/UserContextProvider";
 import Box from "./components/context/Box";
 import MutableRef from "./components/Ref/MutableRef";
 import List from "./components/generics/List";
+import RandomNumber from "./components/propsRestriction/RandomNumber";
+import Toast from "./components/LiteralsAndExclude/Toast";
+import CustomButton from "./components/HTML/CustomButton";
+import CusomtComponent from "./components/HTML/CustomComponent";
+import Text from "./components/polymorphic/Text";
 
 function App() {
     const personName = {
@@ -100,6 +105,30 @@ function App() {
                 ]}
                 onClick={({ id }) => console.log(id)}
             />
+            {/* Restricting props */}
+            <RandomNumber value={10} isNegative />
+            {/*  Template Literals types and Exclude*/}
+            <Toast position="center" />
+            {/* Wrapping HTML elements children to be text only not componet children */}
+            <CustomButton
+                variant="primary"
+                onClick={() => console.log("heloo")}
+            >
+                Primary Button
+            </CustomButton>
+
+            {/* how to extract props from other components */}
+            <CusomtComponent
+                isLoggedIn={false}
+                name="Extracted data"
+                messageCounts={5}
+            />
+            {/* polymorphic */}
+            <Text as="h1" size="lg">Heading</Text>
+            <Text as="p" size="md">Paragraph</Text>
+            <Text as="label" htmlFor="id" size="sm" color="secondary">
+                Label
+            </Text>
         </>
     );
 }
