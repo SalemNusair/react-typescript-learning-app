@@ -43,28 +43,20 @@ function App() {
     ];
     return (
         <>
-            <ThemeContextProvider>
-                <Box />
-            </ThemeContextProvider>
-            <UserContextProvider>
-                <User />
-            </UserContextProvider>
-
+            {/* object */}
+            <Person name={personName} />
+            {/* array of objects */}
+            <PersonList names={personList} />
             {/* assign specific string values */}
             <Status status="error" />
+            {/* string, numbers, boolean and how to make a prop optional */}
+            <Greet name="Salem" messageCounts={20} isLoggedIn={true} />
             {/* children text */}
             <PlaceholderText>hlllo</PlaceholderText>
             {/* children componet */}
             <TextParent>
                 <PlaceholderText>Hello baby</PlaceholderText>
             </TextParent>
-            {/* string, numbers, boolean and how to make a prop optional */}
-            <Greet name="Salem" messageCounts={20} isLoggedIn={true} />
-            {/* object */}
-            <Person name={personName} />
-            {/* array of objects */}
-            <PersonList names={personList} />
-            {/* -------------------------------------------- */}
             {/* events----------------------------------- */}
             <Button
                 handleClick={(event, id) => {
@@ -74,13 +66,23 @@ function App() {
             <Input value="" handleChange={(event) => console.log(event)} />
             {/* Styles */}
             <StyledComponent styles={{ background: "#ccccc", margin: "1px" }} />
-            {/* types for useState hook */}
 
+            {/* types for useState hook */}
             <User />
             {/* types of useReducer hook */}
             <Counter />
+
+            {/* useContxet */}
+            <ThemeContextProvider>
+                <Box />
+            </ThemeContextProvider>
+            <UserContextProvider>
+                <User />
+            </UserContextProvider>
             {/* useRef */}
             <MutableRef />
+
+            {/* -------------------------------------------- */}
             {/* Class components */}
             <CounterClassComponent message="hello I'm class component" />
             {/* generic types */}
@@ -124,8 +126,12 @@ function App() {
                 messageCounts={5}
             />
             {/* polymorphic */}
-            <Text as="h1" size="lg">Heading</Text>
-            <Text as="p" size="md">Paragraph</Text>
+            <Text as="h1" size="lg">
+                Heading
+            </Text>
+            <Text as="p" size="md">
+                Paragraph
+            </Text>
             <Text as="label" htmlFor="id" size="sm" color="secondary">
                 Label
             </Text>
